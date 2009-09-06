@@ -57,7 +57,7 @@
 
         if (osC_Account::savePassword($password, $Qcheck->valueInt('customers_id'))) {
           if (ACCOUNT_GENDER > -1) {
-             if ($data['gender'] == 'm') {
+             if ($Qcheck->valueProtected('customers_gender') == 'm') {
                $email_text = sprintf($osC_Language->get('email_addressing_gender_male'), $Qcheck->valueProtected('customers_lastname')) . "\n\n";
              } else {
                $email_text = sprintf($osC_Language->get('email_addressing_gender_female'), $Qcheck->valueProtected('customers_lastname')) . "\n\n";
