@@ -446,7 +446,7 @@
       global $osC_Cache;
 
       if ($this->cache_read === false) {
-        if (eregi('^SELECT', $this->sql_query)) {
+        if (preg_match('/^SELECT/i', $this->sql_query)) {
           $this->db_class->freeResult($this->query_handler);
         }
 
